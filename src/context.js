@@ -9,7 +9,7 @@ function ContextProvider ({children}){
      setAllphotos(prevPhotos=>prevPhotos.map(
        photo =>(
          photo.id === id ?
-         {...photo, isFavorite: !photo.isFavorited} :
+         {...photo, isFavorite: !photo.isFavorite} :
         photo
         )))
         
