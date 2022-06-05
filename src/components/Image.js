@@ -1,10 +1,11 @@
 import React, {useState, useContext} from "react"
 import {Context} from "../context"
 function Image({className, img}) {
-  const {allPhotos, toggleFavorite}=useContext(Context)
+  const {toggleFavorite}=useContext(Context)
   const [hovered, setHovered]=useState(false)
+  const heartClass = img.isFavorite ? "ri-heart-fill" : "ri-heart-line"
   const icons = <div>              
-                  <i onClick={()=>{toggleFavorite(img.id)}} className="ri-heart-line favorite"></i>
+                  <i onClick={()=>{toggleFavorite(img.id)}} className={`${heartClass} favorite`}></i>
                   <i className="ri-add-circle-line cart"></i>
                 </div>
 
