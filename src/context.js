@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from "react";
-import Photos from "./pages/Photos";
+
 
 const Context = React.createContext()
+
 const url = 'https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json'
+
 function ContextProvider ({children}){
   const [allPhotos, setAllphotos] = useState([])
+
+  const [cartItems, setCartItems] = useState([])
+
+  function addToCart (img){
+    setCartItems(
+      prevCart =>
+      [...prevCart, img]
+      )
+      
+  }
   function toggleFavorite(id){
      setAllphotos(prevPhotos=>prevPhotos.map(
        photo =>(
@@ -14,6 +26,7 @@ function ContextProvider ({children}){
         )))
         
   }
+
   useEffect(
     ()=>{
       fetch(url)
@@ -21,9 +34,9 @@ function ContextProvider ({children}){
         .then(data=>setAllphotos(data))
     },[]
   )
-  console.log(allPhotos)
+
   return(
-    <Context.Provider value={{allPhotos, toggleFavorite}}>
+    <Context.Provider value={{allPhotos, toggleFavorite, addToCart}}>
       {children}
     </Context.Provider>
   )
