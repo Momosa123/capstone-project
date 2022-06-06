@@ -15,14 +15,14 @@ function useHover(){
           
           ()=>{
             const instance = ref.current
-            if(ref!==null && ref.current !== null)
-           { instance.addEventListener("mouseenter", enter)
+            
+           instance.addEventListener("mouseenter", enter)
             instance.addEventListener("mouseleave", leave)
             
             return () => {    
                 instance.removeEventListener("mouseenter", enter)
                 instance.removeEventListener("mouseleave", leave)
-            }}
+            }
           }, []
         )
 

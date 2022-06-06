@@ -14,7 +14,6 @@ function Cart() {
                 setPlaceOrder("...Ordering")
                 setTimeout(
                   ()=>{
-                    console.log("Order placed")
                     setCartItems([])
                     setPlaceOrder("Place Order")
                   }, 3000
