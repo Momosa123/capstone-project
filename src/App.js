@@ -12,8 +12,9 @@ function App() {
             <Routes>
               <Route exact path = "/" element ={<Photos/>}/>
                 
-              
+              <Route path = "/capstone-project" element ={<Photos/>}/>
               <Route path = "/cart" element ={<Cart/>}/>
+
                
               
             </Routes>
